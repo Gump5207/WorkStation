@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ShowController">
+   <top>
+      <Pane prefHeight="71.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="276.0" layoutY="25.0" text="测试">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+   </top>
+   <bottom>
+      <Pane prefHeight="77.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="14.0" layoutY="14.0" text="方向：">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Circle fx:id="in1" fill="LIME" layoutX="98.0" layoutY="30.0" radius="12.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fx:id="in2" fill="LIME" layoutX="145.0" layoutY="30.0" radius="12.0" stroke="BLACK" strokeType="INSIDE" />
+         </children>
+      </Pane>
+   </bottom>
+   <left>
+      <TableView prefHeight="236.0" prefWidth="411.0" BorderPane.alignment="CENTER">
+        <columns>
+          <TableColumn prefWidth="75.0" text="C1" />
+          <TableColumn prefWidth="96.0" text="C2" />
+        </columns>
+      </TableView>
+   </left>
+   <right>
+      <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="connect" layoutX="45.0" layoutY="77.0" mnemonicParsing="false" onAction="#connectDevice" text="连接设备" />
+            <Button fx:id="disconnect" layoutX="45.0" layoutY="77.0" mnemonicParsing="false" onAction="#disconnectDevice" text="断开连接" visible="false" />
+            <Button fx:id="out1_Open" layoutX="11.0" layoutY="208.0" mnemonicParsing="false" text="输出1_开" onAction="#setOut1_Open"/>
+            <Button fx:id="out2_Open" layoutX="106.0" layoutY="208.0" mnemonicParsing="false" text="输出2_开" onAction="#setOut2_Open" />
+            <Button fx:id="out1_Close" layoutX="11.0" layoutY="208.0" mnemonicParsing="false" text="输出1_关" onAction="#setOut1_Close" visible="false"/>
+            <Button fx:id="out2_Close" layoutX="106.0" layoutY="208.0" mnemonicParsing="false" text="输出2_关" onAction="#setOut2_Close" visible="false"/>
+         </children>
+      </Pane>
+   </right>
+</BorderPane>

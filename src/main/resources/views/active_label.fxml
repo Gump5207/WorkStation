@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<SplitPane dividerPositions="0.12311557788944724" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" orientation="VERTICAL" prefHeight="788.0" prefWidth="940.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="equipment.active.ActiveLabelController">
+    <items>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="42.0" prefWidth="938.0">
+            <children>
+                <Label layoutX="397.0" layoutY="11.0" text="有源标签测试">
+                    <font>
+                        <Font size="24.0" />
+                    </font>
+                </Label>
+                <Button fx:id="connect" layoutX="704.0" layoutY="12.0" mnemonicParsing="false" onAction="#connect" text="开始" />
+                <Button fx:id="disConnect" layoutX="704.0" layoutY="12.0" mnemonicParsing="false" onAction="#disConnect" text="断开" visible="false" />
+            </children>
+        </AnchorPane>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="706.0" prefWidth="938.0">
+            <children>
+                <Pane layoutX="14.0" layoutY="14.0" prefHeight="32.0" prefWidth="90.0" />
+                <Label fx:id="currentData" layoutX="304.0" layoutY="43.0" prefHeight="47.0" prefWidth="216.0" text="0000000000">
+                    <font>
+                        <Font size="36.0" />
+                    </font>
+                </Label>
+                <TableView fx:id="table" layoutX="14.0" layoutY="123.0" prefHeight="500.0" prefWidth="900.0">
+                    <columns>
+                        <TableColumn prefWidth="180.0" text="标签数据" />
+                        <TableColumn prefWidth="180.0" text="设备地址" />
+                        <TableColumn prefWidth="180.0" text="标签状态" />
+                        <TableColumn prefWidth="180.0" text="次数" />
+                        <TableColumn prefWidth="180.0" text="RSSI" />
+                    </columns>
+                </TableView>
+                <Label layoutX="13.0" layoutY="93.0" text="数据记录">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                </Label>
+                <Label layoutX="708.0" layoutY="20.0" text="数量：">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                </Label>
+                <ComboBox fx:id="comboBox" layoutX="104.0" layoutY="51.0" onShown="#onShowComboBox" prefHeight="30.0" prefWidth="90.0" />
+                <Label layoutX="14.0" layoutY="54.0" text="设置功率：">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                </Label>
+                <Label fx:id="labelNum" layoutX="772.0" layoutY="7.0" text="0">
+                    <font>
+                        <Font size="36.0" />
+                    </font>
+                </Label>
+                  <Label layoutX="214.0" layoutY="54.0" text="当前数据：">
+                      <font>
+                          <Font size="18.0" />
+                      </font>
+                  </Label>
+            <Button layoutX="834.0" layoutY="78.0" mnemonicParsing="false" text="清空列表" onAction="#clear"/>
+            </children>
+        </AnchorPane>
+    </items>
+</SplitPane>

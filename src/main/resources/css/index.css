@@ -1,0 +1,32 @@
+#index{
+    -fx-background-image: url("../image/6.png");
+}
+
+#homeBtn{
+     -fx-background-image: url("../image/33.png");
+ }
+
+#inventoryBtn{
+    -fx-background-image: url("../image/25.png");
+}
+
+#queryBtn{
+    -fx-background-image: url("../image/4.png");
+}
+
+#outBtn{
+    -fx-background-image: url("../image/23.png");
+}
+
+
+#intoBtn{
+    -fx-background-image: url("../image/14.png");
+}
+
+#monitorBtn{
+    -fx-background-image: url("../image/18.png");
+}
+
+#setBtn{
+    -fx-background-image: url("../image/30.png");
+}

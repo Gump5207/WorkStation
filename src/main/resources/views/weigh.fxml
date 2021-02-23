@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0"
+            xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.WeighController">
+   <top>
+      <Pane prefHeight="87.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="270.0" layoutY="34.0" text="称重测试" />
+         </children>
+      </Pane>
+   </top>
+   <left>
+      <Pane prefHeight="227.0" prefWidth="229.0" BorderPane.alignment="CENTER">
+         <children>
+            <TextArea fx:id="showResponse" layoutX="8.0" layoutY="7.0" prefHeight="200.0" prefWidth="213.0" />
+         </children>
+      </Pane>
+   </left>
+   <bottom>
+      <Pane prefHeight="86.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="peel" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" text="去皮" onAction="#toPeel"/>
+            <Button fx:id="zero" layoutX="74.0" layoutY="14.0" mnemonicParsing="false" text="归零" onAction="#toZero"/>
+         </children></Pane>
+   </bottom>
+   <center>
+      <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutY="14.0" text="当前重量：" />
+            <TextField fx:id="showWeigh" layoutY="51.0" prefHeight="30.0" prefWidth="163.0" />
+         </children>
+      </Pane>
+   </center>
+   <right>
+      <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="start" layoutX="60.0" layoutY="171.0" mnemonicParsing="false" onAction="#openSerial" text="开始称重" />
+            <Button fx:id="stop" layoutX="60.0" layoutY="171.0" mnemonicParsing="false" onAction="#closeSerial" text="停止称重" visible="false" />
+            <ComboBox fx:id="comboBox" layoutX="25.0" layoutY="14.0" prefWidth="150.0" onShown="#onShowComboBox"/>
+         </children>
+      </Pane>
+   </right>
+</BorderPane>

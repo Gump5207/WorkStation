@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="equipment.jt.test.view.View">
+   <children>
+      <Pane layoutY="344.0" prefHeight="56.0" prefWidth="600.0">
+         <children>
+            <Label layoutX="21.0" layoutY="12.0" prefHeight="32.0" prefWidth="83.0" text="方向：">
+               <font>
+                  <Font size="24.0" />
+               </font></Label>
+            <Circle fill="DODGERBLUE" layoutX="162.0" layoutY="28.0" radius="26.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fill="DODGERBLUE" layoutX="250.0" layoutY="28.0" radius="26.0" stroke="BLACK" strokeType="INSIDE" />
+         </children>
+      </Pane>
+      <ListView layoutX="7.0" layoutY="14.0" prefHeight="321.0" prefWidth="587.0" />
+   </children>
+</AnchorPane>

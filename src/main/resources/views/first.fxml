@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane id="index" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" stylesheets="@../css/first.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.FirstController">
+   <top>
+      <Pane prefHeight="100.0" prefWidth="1920.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="864.0" layoutY="14.0" text="智慧物联" textFill="WHITE">
+               <font>
+                  <Font name="System Italic" size="48.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+   </top>
+   <bottom>
+      <TabPane side="BOTTOM" tabClosingPolicy="UNAVAILABLE" tabMinHeight="60.0" tabMinWidth="190.0" BorderPane.alignment="CENTER">
+        <tabs>
+          <Tab id="homeBtn">
+            <content>
+              <AnchorPane />
+            </content>
+               <graphic>
+                  <Pane prefHeight="60.0" prefWidth="190.0">
+                  </Pane>
+               </graphic>
+          </Tab>
+          <Tab id="inventoryBtn">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="1860.0" prefHeight="980.0" prefWidth="1920.0" />
+            </content>
+               <graphic>
+                  <Pane prefHeight="60.0" prefWidth="210.0">
+
+                  </Pane>
+               </graphic>
+          </Tab>
+            <Tab id="queryBtn">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="1860.0" prefHeight="980.0" prefWidth="1920.0">
+                     <children>
+                        <Button layoutX="329.0" layoutY="249.0" mnemonicParsing="false" text="页面一" />
+                     </children>
+                  </AnchorPane>
+               </content>
+               <graphic>
+                  <Pane id="home" prefHeight="60.0" prefWidth="210.0">
+                  </Pane>
+               </graphic>
+            </Tab>
+        </tabs>
+         <BorderPane.margin>
+            <Insets left="100.0" right="100.0" />
+         </BorderPane.margin>
+      </TabPane>
+   </bottom>
+</BorderPane>

@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.1.xsd">
+
+
+    <!--<RESULT>-->
+    <!--    <VALUE>-->
+    <!--        <NO>A1234</NO>　　-->
+    <!--        <ADDR>河南省郑州市</ADDR>-->
+    <!--    </VALUE>-->
+    <!--    <VALUE>　　-->
+    <!--        <NO>B1234</NO> 　-->
+    <!--        <ADDR>河南省郑州市二七区</ADDR>-->
+    <!--    </VALUE>-->
+    <!--</RESULT>-->
+    <!--<equipment>-->
+    <!--    <reader>-->
+    <!--        <IP>172.16.38.232</IP>-->
+    <!--        <port>20058</port>-->
+    <!--    </reader>-->
+    <!--</equipment>-->
+
+    <!-- 配置 spring-mybatis.xml -->
+    <!-- 读取配置文件 -->
+    <util:properties id="redis"
+                     location="classpath:config/redis.properties"/>
+    <util:properties id="jdbc"
+                     location="classpath:config/database.properties"/>
+
+    <!-- 配置数据库连接池 -->
+    <!--<bean id="dataSource"-->
+    <!--      class="org.apache.commons.dbcp.BasicDataSource"-->
+    <!--      destroy-method="close">-->
+    <!--<property name="driverClassName"-->
+    <!--          value="#{jdbc.driver}"/>-->
+    <!--<property name="url"-->
+    <!--          value="#{jdbc.url}"/>-->
+    <!--<property name="username"-->
+    <!--          value="#{jdbc.user}"/>-->
+    <!--<property name="password"-->
+    <!--          value="#{jdbc.password}"/>-->
+    <!--<property name="maxIdle"-->
+    <!--          value="#{jdbc.maxIdle}"/>-->
+    <!--<property name="maxWait"-->
+    <!--          value="#{jdbc.maxWait}"/>-->
+    <!--<property name="maxActive"-->
+    <!--          value="#{jdbc.maxActive}"/>-->
+    <!--<property name="defaultAutoCommit"-->
+    <!--          value="#{jdbc.defaultAutoCommit}"/>-->
+    <!--<property name="defaultReadOnly"-->
+    <!--          value="#{jdbc.defaultReadOnly}"/>-->
+    <!--<property name="testOnBorrow"-->
+    <!--          value="#{jdbc.testOnBorrow}"/>-->
+    <!--<property name="validationQuery"-->
+    <!--          value="#{jdbc.validationQuery}"/>-->
+    <!--</bean>-->
+
+    <!--        &lt;!&ndash; 配置MyBatis的 SessionFactory &ndash;&gt;-->
+    <!--<bean id="sqlSessionFactory"-->
+    <!--      class="org.mybatis.spring.SqlSessionFactoryBean">-->
+    <!--<property name="dataSource"-->
+    <!--          ref="dataSource"/>-->
+
+    <!--<property name="mapperLocations"-->
+    <!--          value="classpath:mapper/*.xml"/>-->
+
+    <!--</bean>-->
+    <!--        &lt;!&ndash; Mapper接口组件扫描 &ndash;&gt;-->
+    <!--<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">-->
+    <!--<property name="basePackage"-->
+    <!--          value="com.zzipsun.dao"/>-->
+    <!--</bean>-->
+
+    <!--        &lt;!&ndash;  transaction config related... &ndash;&gt;-->
+    <!--<bean id="txManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">-->
+    <!--<property name="dataSource"-->
+    <!--          ref="dataSource"/>-->
+    <!--</bean>-->
+    <!--        &lt;!&ndash; 设置 注解驱动的事务管理  &ndash;&gt;-->
+    <!--<tx:annotation-driven-->
+    <!--transaction-manager="txManager"/>-->
+
+
+    <!-- redis config start -->
+    <!-- 配置JedisPoolConfig实例 -->
+    <bean id="poolConfig" class="redis.clients.jedis.JedisPoolConfig">
+<!--        <property name="maxIdle" value="#{redis.maxIdle}"/>-->
+<!--        <property name="maxTotal" value="#{redis.maxActive}"/>-->
+<!--        <property name="maxWaitMillis" value="#{redis.maxWait}"/>-->
+<!--        <property name="testOnBorrow" value="#{redis.testOnBorrow}"/>-->
+    </bean>
+
+    <!--  配置JedisConnectionFactory -->
+    <bean id="jedisConnectionFactory"
+          class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory">
+        <property name="hostName" value="#{redis.host}"/>
+        <property name="port" value="#{redis.port}"/>
+          <property name="password" value="#{redis.password}" />
+        <property name="database" value="#{redis.dbIndex}"/>
+        <property name="poolConfig" ref="poolConfig"/>
+    </bean>
+    <!-- 配置RedisTemplate -->
+    <bean id="redisTemplate" class="org.springframework.data.redis.core.RedisTemplate">
+        <property name="connectionFactory" ref="jedisConnectionFactory"/>
+        <!--     如果不配置Serializer，那么存储的时候只能使用String，如果用对象类型存储，那么会提示错误 can't cast to String！！！-->
+        <property name="keySerializer">
+            <bean class="org.springframework.data.redis.serializer.StringRedisSerializer"/>
+        </property>
+        <property name="valueSerializer">
+            <bean class="org.springframework.data.redis.serializer.JdkSerializationRedisSerializer"/>
+        </property>
+    </bean>
+
+    <!--自定义redis工具类,在需要缓存的地方注入此类  -->
+<!--    <bean id="redisUtil" class="com.zzipsun.util.RedisUtil">-->
+<!--        <property name="redisTemplate" ref="redisTemplate"/>-->
+<!--    </bean>-->
+
+</beans>
